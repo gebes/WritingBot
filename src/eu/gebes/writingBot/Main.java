@@ -37,8 +37,8 @@ class WritingBot {
                     'Ä',"142",
                     'Ö',"153",
                     'Ü',"154",
-                    'ß',"225");
-
+                    'ß',"225",
+                    ':', "58");
 
             for (char c : stuffToWrite.toCharArray()) {
 
@@ -75,7 +75,7 @@ class WritingBot {
 
                 } else {
 
-                    boolean isUppercase = (c + "").equals((c + "").toUpperCase()) && c >= 'A' && c <= 'Z';
+                    boolean isUppercase = (c + "").equals((c + "").toUpperCase()) && (c >= 'A' && c <= 'Z') ;
                     if(isUppercase)
                         robot.keyPress(KeyEvent.VK_SHIFT);
 
