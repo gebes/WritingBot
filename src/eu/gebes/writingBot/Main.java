@@ -74,16 +74,28 @@ class WritingBot {
 
 
                 } else {
+
+                    boolean isUppercase = (c + "").equals((c + "").toUpperCase());
+                    if(isUppercase)
+                        robot.keyPress(KeyEvent.VK_SHIFT);
+
                     int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
                     robot.keyPress(keyCode);
                     robot.keyRelease(keyCode);
+
+                    if(isUppercase)
+                        robot.keyRelease(KeyEvent.VK_SHIFT);
+
                 }
-                sleep(0.025f);
+                sleep(randomFloat(0.01f, 0.04f));
             }
         } catch (AWTException e) {
             throw new RuntimeException(e);
         }
+   }
 
+    private static float randomFloat(float min, float max){
+        return (float) (min + Math.random() * (max - min));
     }
 
     private static void timer() {
