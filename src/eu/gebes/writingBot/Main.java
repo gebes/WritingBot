@@ -21,7 +21,7 @@ class WritingBot {
 
     public void exec() {
         System.out.println("Enter a string to write: ");
-        final String stuffToWrite = new Scanner(System.in).next();
+        final String stuffToWrite = new Scanner(System.in).nextLine();
 
         timer();
 
@@ -30,13 +30,12 @@ class WritingBot {
             Robot robot = new Robot();
 
 
-            for(char c : stuffToWrite.toCharArray()){
+            for (char c : stuffToWrite.toCharArray()) {
                 int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
                 robot.keyPress(keyCode);
+                sleep(0.05f);
                 robot.keyRelease(keyCode);
-                sleep(0.025f);
             }
-
         } catch (AWTException e) {
             throw new RuntimeException(e);
         }
