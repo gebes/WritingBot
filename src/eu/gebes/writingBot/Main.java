@@ -1,6 +1,7 @@
 package eu.gebes.writingBot;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.Scanner;
 
 public class Main {
@@ -28,10 +29,12 @@ class WritingBot {
         try {
             Robot robot = new Robot();
 
+
             for(char c : stuffToWrite.toCharArray()){
-                robot.keyPress(c);
-                sleep(0.05f);
-                robot.keyRelease(c);
+                int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
+                robot.keyPress(keyCode);
+                robot.keyRelease(keyCode);
+                sleep(0.025f);
             }
 
         } catch (AWTException e) {
