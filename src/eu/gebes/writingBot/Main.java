@@ -92,6 +92,8 @@ class WritingBot {
         } catch (AWTException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Done!");
+        exec();
    }
 
     private static float randomFloat(float min, float max){
