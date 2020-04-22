@@ -1,5 +1,6 @@
 package eu.gebes.writingBot;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class Main {
@@ -21,22 +22,36 @@ class WritingBot {
         System.out.println("Enter a string to write: ");
         final String stuffToWrite = new Scanner(System.in).next();
 
-        timer(3);
+        timer();
+
+        System.out.println("Entering...");
+        try {
+            Robot robot = new Robot();
+
+            for(char c : stuffToWrite.toCharArray()){
+                robot.keyPress(c);
+                sleep(0.05f);
+                robot.keyRelease(c);
+            }
+
+        } catch (AWTException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
-    private static void timer(int duration) {
+    private static void timer() {
 
-        for (int i = duration; i > 0; i--) {
+        for (int i = 3; i > 0; i--) {
             System.out.println("Entering input in " + i + " seconds");
             sleep(1);
         }
 
     }
 
-    private static void sleep(int seconds) {
+    private static void sleep(float seconds) {
         try {
-            Thread.sleep(seconds * 1000);
+            Thread.sleep((long) (seconds * 1000f));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
