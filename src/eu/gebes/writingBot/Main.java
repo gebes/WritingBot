@@ -75,7 +75,7 @@ class WritingBot {
 
                 } else {
 
-                    boolean isUppercase = (c + "").equals((c + "").toUpperCase());
+                    boolean isUppercase = (c + "").equals((c + "").toUpperCase()) && c >= 'A' && c <= 'Z';
                     if(isUppercase)
                         robot.keyPress(KeyEvent.VK_SHIFT);
 
