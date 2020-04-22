@@ -76,9 +76,9 @@ class WritingBot {
                 } else {
                     int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
                     robot.keyPress(keyCode);
-                    sleep(0.05f);
                     robot.keyRelease(keyCode);
                 }
+                sleep(0.025f);
             }
         } catch (AWTException e) {
             throw new RuntimeException(e);
