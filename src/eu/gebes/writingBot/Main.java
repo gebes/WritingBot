@@ -30,15 +30,20 @@ class WritingBot {
         try {
             Robot robot = new Robot();
 
-            final Map<Character, String> sonderzeichen = Map.of(
+            final Map<Character, String> sonderzeichen = new java.util.HashMap<>(Map.of(
                     'ä', "132",
-                    'ö',"148",
-                    'ü',"129",
-                    'Ä',"142",
-                    'Ö',"153",
-                    'Ü',"154",
-                    'ß',"225",
-                    ':', "58");
+                    'ö', "148",
+                    'ü', "129",
+                    'Ä', "142",
+                    'Ö', "153",
+                    'Ü', "154",
+                    'ß', "225",
+                    ':', ascii(':') + "",
+                    ')', ascii(')') + "",
+                    '(', ascii('(') + ""
+            ));
+            sonderzeichen.put('$', ascii('$') +"");
+
 
             for (char c : stuffToWrite.toCharArray()) {
 
@@ -62,7 +67,7 @@ class WritingBot {
                     );
 
 
-                    for(char d : code.toCharArray()){
+                    for (char d : code.toCharArray()) {
                         int digit = Integer.parseInt(d + "");
 
                         robot.keyPress(numpads.get(digit));
@@ -75,15 +80,15 @@ class WritingBot {
 
                 } else {
 
-                    boolean isUppercase = (c + "").equals((c + "").toUpperCase()) && (c >= 'A' && c <= 'Z') ;
-                    if(isUppercase)
+                    boolean isUppercase = (c + "").equals((c + "").toUpperCase()) && (c >= 'A' && c <= 'Z');
+                    if (isUppercase)
                         robot.keyPress(KeyEvent.VK_SHIFT);
 
                     int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
                     robot.keyPress(keyCode);
                     robot.keyRelease(keyCode);
 
-                    if(isUppercase)
+                    if (isUppercase)
                         robot.keyRelease(KeyEvent.VK_SHIFT);
 
                 }
@@ -94,10 +99,14 @@ class WritingBot {
         }
         System.out.println("Done!");
         exec();
-   }
+    }
 
-    private static float randomFloat(float min, float max){
+    private static float randomFloat(float min, float max) {
         return (float) (min + Math.random() * (max - min));
+    }
+
+    private static int ascii(char c) {
+        return ((int) ('('));
     }
 
     private static void timer() {
