@@ -3,7 +3,7 @@
 
 ## How to setup?
 Clone the repo, compile it and run the program!
-After you entered some long String, the Bot will start writing it after 3 seconds (not all Special Chars are supported)
+After you entered some long String, the Bot will start writing it after 3 seconds
 
 ## What did I learn?
 * How to use the Java Robot class
