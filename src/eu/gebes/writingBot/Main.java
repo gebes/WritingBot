@@ -63,7 +63,7 @@ class WritingBot {
                 robot.keyRelease(KeyEvent.VK_ALT);
 
 
-                sleep(randomFloat(0.01f, 0.04f));
+                sleep(randomFloat(0.001f, 0.005f));
             }
         } catch (AWTException e) {
             throw new RuntimeException(e);
@@ -76,9 +76,6 @@ class WritingBot {
         return (float) (min + Math.random() * (max - min));
     }
 
-    private static int ascii(char c) {
-        return ((int) ('('));
-    }
 
     private static void timer() {
 
