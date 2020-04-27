@@ -30,68 +30,38 @@ class WritingBot {
         try {
             Robot robot = new Robot();
 
-            final Map<Character, String> sonderzeichen = new java.util.HashMap<>(Map.of(
-                    'ä', "132",
-                    'ö', "148",
-                    'ü', "129",
-                    'Ä', "142",
-                    'Ö', "153",
-                    'Ü', "154",
-                    'ß', "225",
-                    ':', ascii(':') + "",
-                    ')', ascii(')') + "",
-                    '(', ascii('(') + ""
-            ));
-            sonderzeichen.put('$', ascii('$') +"");
-
 
             for (char c : stuffToWrite.toCharArray()) {
 
-                if (sonderzeichen.containsKey(c)) {
+                String code = String.format("%04d", (int) c);
 
-                    String code = sonderzeichen.get(c);
+                robot.keyPress(KeyEvent.VK_ALT);
 
-                    robot.keyPress(KeyEvent.VK_ALT);
-
-                    Map<Integer, Integer> numpads = Map.of(
-                            0, KeyEvent.VK_NUMPAD0,
-                            1, KeyEvent.VK_NUMPAD1,
-                            2, KeyEvent.VK_NUMPAD2,
-                            3, KeyEvent.VK_NUMPAD3,
-                            4, KeyEvent.VK_NUMPAD4,
-                            5, KeyEvent.VK_NUMPAD5,
-                            6, KeyEvent.VK_NUMPAD6,
-                            7, KeyEvent.VK_NUMPAD7,
-                            8, KeyEvent.VK_NUMPAD8,
-                            9, KeyEvent.VK_NUMPAD9
-                    );
+                Map<Integer, Integer> numpads = Map.of(
+                        0, KeyEvent.VK_NUMPAD0,
+                        1, KeyEvent.VK_NUMPAD1,
+                        2, KeyEvent.VK_NUMPAD2,
+                        3, KeyEvent.VK_NUMPAD3,
+                        4, KeyEvent.VK_NUMPAD4,
+                        5, KeyEvent.VK_NUMPAD5,
+                        6, KeyEvent.VK_NUMPAD6,
+                        7, KeyEvent.VK_NUMPAD7,
+                        8, KeyEvent.VK_NUMPAD8,
+                        9, KeyEvent.VK_NUMPAD9
+                );
 
 
-                    for (char d : code.toCharArray()) {
-                        int digit = Integer.parseInt(d + "");
+                for (char d : code.toCharArray()) {
+                    int digit = Integer.parseInt(d + "");
 
-                        robot.keyPress(numpads.get(digit));
-                        robot.keyRelease(numpads.get(digit));
-
-                    }
-
-                    robot.keyRelease(KeyEvent.VK_ALT);
-
-
-                } else {
-
-                    boolean isUppercase = (c + "").equals((c + "").toUpperCase()) && (c >= 'A' && c <= 'Z');
-                    if (isUppercase)
-                        robot.keyPress(KeyEvent.VK_SHIFT);
-
-                    int keyCode = KeyEvent.getExtendedKeyCodeForChar(c);
-                    robot.keyPress(keyCode);
-                    robot.keyRelease(keyCode);
-
-                    if (isUppercase)
-                        robot.keyRelease(KeyEvent.VK_SHIFT);
+                    robot.keyPress(numpads.get(digit));
+                    robot.keyRelease(numpads.get(digit));
 
                 }
+
+                robot.keyRelease(KeyEvent.VK_ALT);
+
+
                 sleep(randomFloat(0.01f, 0.04f));
             }
         } catch (AWTException e) {
