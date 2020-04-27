@@ -11,7 +11,8 @@ public class Main {
     public static void main(String[] args) {
 
         WritingBot writingBot = new WritingBot();
-        writingBot.exec();
+        while (true)
+            writingBot.exec();
 
     }
 
@@ -68,7 +69,7 @@ class WritingBot {
             throw new RuntimeException(e);
         }
         System.out.println("Done!");
-        exec();
+
     }
 
     private static float randomFloat(float min, float max) {
