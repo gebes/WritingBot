@@ -7,6 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a2e65a50-ba38-46ea-8dac-03614d53d899" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/WritingBot.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eu/gebes/writingBot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eu/gebes/writingBot/Main.java" afterDir="false" />
@@ -90,7 +91,7 @@
       <updated>1587584549544</updated>
       <workItem from="1587584554113" duration="6483000" />
       <workItem from="1587633471909" duration="22000" />
-      <workItem from="1587973850133" duration="3264000" />
+      <workItem from="1587973850133" duration="3999000" />
     </task>
     <servers />
   </component>
