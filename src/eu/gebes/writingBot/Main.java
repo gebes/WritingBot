@@ -63,7 +63,7 @@ class WritingBot {
                 robot.keyRelease(KeyEvent.VK_ALT);
 
 
-                sleep(randomFloat(0.0002f, 0.0004f));
+                sleep(randomFloat(0.002f, 0.004f));
             }
         } catch (AWTException e) {
             throw new RuntimeException(e);
