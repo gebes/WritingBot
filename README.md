@@ -1,8 +1,9 @@
 # WritingBot
- A simple WritingBot for any kind of use
+🤖Writes automatically messages for you in inhuman speed!
+Useful for typewriter😉
 
 ## How to setup?
-Clone the repo, compile it and run the program!
+Clone the repo, compile it and run the program via terminal or the .bat on windows!
 After you entered some long String, the Bot will start writing it after 3 seconds
 
 ## What did I learn?
