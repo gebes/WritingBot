@@ -9,4 +9,3 @@ After you entered some long String, the Bot will start writing it after 3 second
 ## What did I learn?
 * How to use the Java Robot class
 * How to write Special Chars which aren't even defined in the Java KeyEvent class
-* How I can skip those long and boring TypeWriter examples c:
